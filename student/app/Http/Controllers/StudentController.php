@@ -185,7 +185,7 @@ class StudentController extends Controller
     {
         Excel::import(new StudentsImport, 'import.xlsx');
 
-        return redirect('/')->with('success', 'All good!');
+        return redirect('/')->with('成功!!', 'All good!');
     }
 
 
