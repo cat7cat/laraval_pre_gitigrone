@@ -10,29 +10,35 @@
 <body>
 
 <div class="container mt-3">
-  <h2>新增 Create Table</h2>
+  <h2>修改 Table</h2>
   <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>            
   <table class="table table-bordered">
     <thead>
       <tr>
-        
+        <th>id</th>        
         <th>name</th>
         <th>age</th>        
       </tr>
     </thead>
-    <form action="{{route('students.store')}}" method="post">
+    {{-- {{dd($data)}} --}}
+    <form action="{{route('students.update',['student' => $data->id])}}" method="post">
       @csrf
+      @method('PUT')
+
           <tbody>
             <tr>
               <td>
-                    <input type="text" name="name" id="name">
+                {{$data->id}}
+               </td>
+              <td>
+                    <input type="text" name="name" id="name" value="{{$data->name}}">
               </td>
               <td>
-                    <input type="text" name="age" id="age">
+                    <input type="text" name="age" id="age" value="{{$data->age}}">
               </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <button type="submit" class="btn btn-primary btn-block">submit</button>
                 </td>
             </tr>

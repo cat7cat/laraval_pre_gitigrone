@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Facade;
 
+
+
+
 return [
 
+
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -68,8 +73,8 @@ return [
     | ahead and set this to a sensible default for you out of the box.
     |
     */
-
-    'timezone' => 'UTC',
+    //時區改成 亞洲台灣
+    'timezone' => 'Asia/Taipei',
 
     /*
     |--------------------------------------------------------------------------
@@ -195,6 +200,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        // EXCEL 匯出
+        Maatwebsite\Excel\ExcelServiceProvider::class, 
     ],
 
     /*
@@ -210,6 +218,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class, //EXCEL匯出功能
     ])->toArray(),
 
 ];
